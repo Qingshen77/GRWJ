@@ -1,0 +1,74 @@
+<!-- merchandise.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周边展示｜故人温酒</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .merch-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .merch-item img {
+            width: 100%;
+            transition: transform 0.3s;
+        }
+        .merch-item:hover img {
+            transform: scale(1.05);
+        }
+        .merch-info {
+            position: absolute;
+            bottom: 0;
+            background: rgba(255,255,255,0.9);
+            width: 100%;
+            padding: 0.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">🏠 首页</a>
+        <a href="about.html">📖 作者简介</a>
+        <a href="social.html">📱 公开账号</a>
+        <a href="works.html">📚 作品汇总</a>
+        <a href="derivatives.html">🎨 作品授权</a>
+        <a href="merchandise.html">🎁 周边展示</a>
+    </nav>
+
+    <main>
+        <h1>🎁 精选周边</h1>
+        <div class="merch-grid">
+            <div class="merch-item">
+                <img src="assets/images/merch1.jpg" alt="主题笔记本">
+                <div class="merch-info">
+                    <p>月光酒馆主题笔记本</p>
+                    <small>¥68</small>
+                </div>
+            </div>
+            <div class="merch-item">
+                <img src="assets/images/merch2.jpg" alt="书签套装">
+                <div class="merch-info">
+                    <p>典藏书签套装</p>
+                    <small>¥45</small>
+                </div>
+            </div>
+            <!-- 更多周边项 -->
+        </div>
+    </main>
+
+  <footer>
+    <p>©2025 故人温酒-枕水集</p>
+  </footer>
+
+</body>
+</html>

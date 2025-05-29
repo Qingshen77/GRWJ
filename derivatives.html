@@ -1,0 +1,88 @@
+<!-- derivatives.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品授权｜故人温酒</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .license-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .license-card {
+            padding: 1.5rem;
+            border: 1px solid var(--beige);
+            text-align: center;
+        }
+        .process-steps {
+            counter-reset: step;
+            margin: 2rem 0;
+        }
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin: 1.5rem 0;
+        }
+        .step-item::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--beige);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">🏠 首页</a>
+        <a href="about.html">📖 作者简介</a>
+        <a href="social.html">📱 公开账号</a>
+        <a href="works.html">📚 作品汇总</a>
+        <a href="derivatives.html">🎨 作品授权</a>
+        <a href="merchandise.html">🎁 周边展示</a>
+    </nav>
+
+    <main>
+        <h1>🎨 授权合作</h1>
+        <div class="license-types">
+            <div class="license-card">
+                <h3>出版授权</h3>
+                <p>实体书/电子书出版</p>
+            </div>
+            <div class="license-card">
+                <h3>影视改编</h3>
+                <p>剧本开发/影视化</p>
+            </div>
+            <div class="license-card">
+                <h3>周边开发</h3>
+                <p>文创产品授权</p>
+            </div>
+        </div>
+
+        <div class="process-steps">
+            <h2>合作流程</h2>
+            <div class="step-item">提交合作意向书</div>
+            <div class="step-item">内容评估阶段</div>
+            <div class="step-item">合同协商签署</div>
+            <div class="step-item">项目执行开发</div>
+        </div>
+    </main>
+
+<footer>
+    <p>©2025 故人温酒-枕水集</p>
+</footer>
+
+</body>
+</html>

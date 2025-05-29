@@ -1,0 +1,84 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故人温酒｜文学世界</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .featured-work {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: rgba(241, 236, 226, 0.3);
+        }
+        .latest-news {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px dashed var(--beige);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">🏠 首页</a>
+        <a href="about.html">📖 作者简介</a>
+        <a href="social.html">📱 公开账号</a>
+        <a href="works.html">📚 作品汇总</a>
+        <a href="derivatives.html">🎨 作品授权</a>
+        <a href="merchandise.html">🎁 周边展示</a>
+    </nav>
+
+<main>
+    <div class="hero-section">
+        <!-- 主标题区 -->
+        <div class="title-wrapper">
+            <h1 class="brush-title">故人温酒·书写女性之间的情与爱</h1>
+            <div class="deco-line"></div>
+        </div>
+
+        <!-- 作家简介区 -->
+        <section class="author-intro">
+            <div class="intro-text">
+                <p class="lead">
+                    您好！欢迎来到 <span class="highlight">故人温酒</span> 的相关信息库<br>
+                    在这里，你将更全面地了解故人温酒的创作历程，感知她的作品丰度。
+                </p>
+                <div class="signature">
+                    <img src="assets/images/signature.png" alt="作家手写签名">
+                </div>
+            </div>
+            
+            <!-- 代表作品展示 -->
+            <article class="featured-work">
+                <div class="book-cover">
+                    <img src="assets/images/featured-book.jpg" alt="代表作封面" 
+                         data-title="《三尺》">
+                    <div class="hover-mask"></div>
+                </div>
+                <div class="work-info">
+                    <h2>最新长篇连载</h2>
+                    <p class="meta-info">
+                        <span class="icon">🌸</span> 《合衬》<br>
+                        <span class="icon">📖</span> 青春校园·狐狸与狼<br>
+                        <span class="icon">🏆</span> 2024年度最受读者期待作品
+                    </p>
+                    <a href="works.html" class="cta-btn">
+                        <span>作品详情</span>
+                        <svg class="arrow-icon">...</svg>
+                    </a>
+                </div>
+            </article>
+        </section>
+    </div>
+</main>
+
+
+<footer>
+    <p>©2025 故人温酒-枕水集</p>
+</footer>
+
+</body>
+</html>

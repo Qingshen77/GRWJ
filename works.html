@@ -1,0 +1,67 @@
+<!-- works.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品汇总｜故人温酒</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .book-shelf {
+            column-count: 2;
+            column-gap: 2rem;
+        }
+        .book-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--beige);
+        }
+        .book-cover {
+            width: 120px;
+            float: left;
+            margin-right: 1rem;
+        }
+        .series-tag {
+            background: var(--beige);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">🏠 首页</a>
+        <a href="about.html">📖 作者简介</a>
+        <a href="social.html">📱 公开账号</a>
+        <a href="works.html">📚 作品汇总</a>
+        <a href="derivatives.html">🎨 作品授权</a>
+        <a href="merchandise.html">🎁 周边展示</a>
+    </nav>
+
+    <main>
+        <h1>📚 作品长廊</h1>
+        <div class="book-shelf">
+            <div class="book-item">
+                <img src="assets/images/book1.jpg" class="book-cover" alt="月光酒馆">
+                <h3>《月光酒馆》 <span class="series-tag">系列1</span></h3>
+                <p>都市奇幻｜2019年出版</p>
+                <p>累计销量突破50万册</p>
+            </div>
+            <div class="book-item">
+                <img src="assets/images/book2.jpg" class="book-cover" alt="杯中时光">
+                <h3>《杯中时光》</h3>
+                <p>短篇集｜2018年出版</p>
+                <p>新人作家奖入围作品</p>
+            </div>
+            <!-- 更多作品项 -->
+        </div>
+    </main>
+
+  <footer>
+    <p>©2025 故人温酒-枕水集</p>
+  </footer>
+
+</body>
+</html>

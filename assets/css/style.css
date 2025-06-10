@@ -1,28 +1,83 @@
-/* 更新后的style.css */
+/* === 全局变量与基础样式 === */
+
 :root {
-    --cream: #F5F5DC;       /* 主色-象牙白 */
-    --beige: #E1C699;       /* 辅色-浅驼色 */
-    --slate: #708090;       /* 强调色-石板灰 */
-    --charcoal: #36454F;    /* 深灰文字 */
-    --linen: #FAF0E6;       /* 背景辅助色 */
+    --cream: #F5F5DC;
+    --beige: #E1C699;
+    --slate: #708090;
+    --charcoal: #36454F;
+    --linen: #FAF0E6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 15px;
+    }
 }
 
 body {
     background: linear-gradient(15deg, var(--cream), var(--linen));
     color: var(--charcoal);
     font-family: '思源宋体', 'Noto Serif SC', serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === 导航栏 === */
+
 nav {
-    background: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(5px);
     border-bottom: 1px solid var(--beige);
+    padding: 0.8rem 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--slate);
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
 }
 
 nav a {
     color: var(--slate);
-    padding: 0.8rem 1.2rem;
+    padding: 0.6rem 1rem;
     border-radius: 4px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 nav a:hover {
@@ -30,59 +85,54 @@ nav a:hover {
     color: var(--charcoal);
 }
 
+/* === 响应式导航 === */
+
+@media (max-width: 768px) {
+    nav .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        display: none;
+        border-top: 1px solid var(--beige);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* === 主内容区域 === */
+
 main {
+    max-width: 1000px;
+    margin: 2rem auto;
     background: rgba(255,255,255,0.95);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border: 1px solid var(--beige);
+    padding: 2rem;
 }
 
-h1 {
-    color: var(--slate);
-    border-left: 4px solid var(--beige);
-    padding-left: 1rem;
-}
+/* === 标题 === */
 
-.biography {
-    background: rgba(241, 236, 226, 0.3);
-    border: 1px solid rgba(225,198,153,0.3);
-}
-
-.author-portrait {
-    border: 3px solid var(--beige);
-    box-shadow: 0 2px 8px rgba(113,128,144,0.1);
-}
-
-footer {
-    text-align: center;
-    padding: 1.5rem 1rem; /* 增加垂直间距 */
-    background: rgba(225, 198, 153, 0.1); /* 与导航栏色调呼应 */
-    position: relative;
-    margin-top: 3rem;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-    color: var(--slate); /* 使用石板灰提升质感 */
-    letter-spacing: 0.5px; /* 增加字间距 */
-}
-
-footer::before {
-    content: '';
-    display: block;
-    width: 120px;
-    height: 1px;
-    background: var(--beige);
-    margin: 0 auto 1.5rem;
-}
-
-/* 主标题艺术化处理 */
 .brush-title {
     font-family: '方正清刻本悦宋', cursive;
     font-size: 2.8rem;
     text-align: center;
     color: var(--slate);
-    margin: 2rem 0;
+    margin: 2rem 0 1rem;
     position: relative;
     padding-bottom: 1rem;
 }
@@ -94,28 +144,55 @@ footer::before {
     margin: 0 auto;
 }
 
-/* 简介文字排版 */
+/* === 作者介绍布局 === */
+
 .author-intro {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
     padding: 2rem 0;
+}
+
+.author-portrait {
+    width: 100%;
+    max-width: 300px;
+    border: 3px solid var(--beige);
+    box-shadow: 0 2px 8px rgba(113,128,144,0.1);
+    border-radius: 8px;
 }
 
 .lead {
     font-size: 1.2rem;
     line-height: 1.8;
     border-left: 3px solid var(--beige);
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 
-.highlight {
-    color: var(--slate);
-    font-weight: 600;
+/* === 响应式退化 === */
+
+@media (max-width: 768px) {
+    .author-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .brush-title {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+        padding-left: 1rem;
+    }
+
+    .deco-line {
+        width: 80px;
+    }
 }
 
-/* 作品展示区交互设计 */
+/* === 作品展示区 === */
+
 .featured-work {
     position: relative;
     border-radius: 8px;
@@ -145,7 +222,8 @@ footer::before {
     transition: opacity 0.3s;
 }
 
-/* 按钮动效 */
+/* === 按钮 === */
+
 .cta-btn {
     display: inline-flex;
     align-items: center;
@@ -154,6 +232,7 @@ footer::before {
     color: white;
     border-radius: 30px;
     transition: all 0.3s;
+    min-height: 44px;
 }
 
 .cta-btn:hover {
@@ -173,13 +252,28 @@ footer::before {
     transform: translateX(3px);
 }
 
-/* 响应式优化 */
-@media (max-width: 768px) {
-    .author-intro {
-        grid-template-columns: 1fr;
-    }
-    
-    .brush-title {
-        font-size: 2rem;
-    }
+/* === 页脚 === */
+
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(225, 198, 153, 0.1);
+    position: relative;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--slate);
+    letter-spacing: 0.5px;
+}
+
+footer::before {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: var(--beige);
+    margin: 0 auto 1.5rem;
 }

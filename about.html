@@ -6,28 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>故人温酒 - 作者简介</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- 可选：自定义样式 -->
     <style>
-        /* 局部增强样式 */
-        .accent-text {
-            color: var(--slate);
-            font-weight: 500;
+        .featured-work {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: rgba(241, 236, 226, 0.3);
+            border-radius: 8px;
         }
-        .timeline {
-            border-left: 2px solid var(--beige);
-            padding-left: 2rem;
+
+        .latest-news {
             margin: 2rem 0;
+            padding: 1rem;
+            border: 1px dashed var(--beige);
+        }
+
+        .signature img {
+            max-width: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-work {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .work-info {
+                text-align: center;
+            }
+
+            .book-cover {
+                max-width: 300px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">🏠 首页</a>
-        <a href="about.html">📖 作者简介</a>
-        <a href="social.html">📱 公开账号</a>
-        <a href="works.html">📚 作品汇总</a>
-        <a href="derivatives.html">🎨 作品授权</a>
-        <a href="merchandise.html">🎁 周边展示</a>
+        <!-- 汉堡菜单图标 -->
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
+        <ul>
+            <li><a href="about.html">📖 作者简介</a></li>
+            <li><a href="social.html">📱 公开账号</a></li>
+            <li><a href="works.html">📚 作品汇总</a></li>
+            <li><a href="derivatives.html">🎨 作品授权</a></li>
+            <li><a href="merchandise.html">🎁 周边展示</a></li>
+        </ul>
     </nav>
+
 
     <main>
         <div class="author-card">
@@ -54,9 +85,16 @@
         </div>
     </main>
 
-<footer>
-    <p>©2025 故人温酒-枕水集</p>
-</footer>
 
+ <footer>
+        <p>©2025 故人温酒-枕水集</p>
+    </footer>
+
+    <!-- 可选：导航栏交互 JS -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

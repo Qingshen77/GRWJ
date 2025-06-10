@@ -6,62 +6,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作品汇总｜故人温酒</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- 可选：自定义样式 -->
     <style>
+        .featured-work {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: rgba(241, 236, 226, 0.3);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-work {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .work-info {
+                text-align: center;
+            }
+
+            .book-cover {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        .search-box {
+            margin: 1rem 0 2rem;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 90%;
+            max-width: 400px;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            border: 1px solid var(--beige);
+            border-radius: 30px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
         .book-shelf {
-            column-count: 2;
-            column-gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
+
+        .category-section {
+            margin: 2rem 0;
+        }
+
+        .category-section h2 {
+            font-size: 1.3rem;
+            color: var(--slate);
+            border-left: 3px solid var(--beige);
+            padding-left: 0.8rem;
+        }
+
         .book-item {
-            break-inside: avoid;
-            margin-bottom: 2rem;
+            background: #fff;
+            border: 1px solid var(--beige);
+            border-radius: 8px;
             padding: 1rem;
-            border-bottom: 1px solid var(--beige);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
         }
-        .book-cover {
-            width: 120px;
-            float: left;
-            margin-right: 1rem;
+
+        .book-item:hover {
+            transform: translateY(-2px);
         }
+
+        .book-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
         .series-tag {
-            background: var(--beige);
+            color: var(--slate);
+            font-weight: normal;
+            font-style: italic;
+            margin-left: 0.5rem;
+        }
+
+        .book-item p {
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .book-item a {
+            color: var(--slate);
+        }
+
+        .reset-button {
+            display: block;
+            margin: 1rem auto;
+            padding: 0.5rem 1rem;
+            background: var(--slate);
             color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .reset-button:hover {
+            background: var(--beige);
+            color: var(--charcoal);
         }
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">🏠 首页</a>
-        <a href="about.html">📖 作者简介</a>
-        <a href="social.html">📱 公开账号</a>
-        <a href="works.html">📚 作品汇总</a>
-        <a href="derivatives.html">🎨 作品授权</a>
-        <a href="merchandise.html">🎁 周边展示</a>
+        <!-- 汉堡菜单图标 -->
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
+        <ul>
+            <li><a href="about.html">📖 作者简介</a></li>
+            <li><a href="social.html">📱 公开账号</a></li>
+            <li><a href="works.html">📚 作品汇总</a></li>
+            <li><a href="derivatives.html">🎨 作品授权</a></li>
+            <li><a href="merchandise.html">🎁 周边展示</a></li>
+        </ul>
     </nav>
 
     <main>
         <h1>📚 作品长廊</h1>
-        <div class="book-shelf">
-            <div class="book-item">
-                <img src="assets/images/book1.jpg" class="book-cover" alt="月光酒馆">
-                <h3>《月光酒馆》 <span class="series-tag">系列1</span></h3>
-                <p>都市奇幻｜2019年出版</p>
-                <p>累计销量突破50万册</p>
-            </div>
-            <div class="book-item">
-                <img src="assets/images/book2.jpg" class="book-cover" alt="杯中时光">
-                <h3>《杯中时光》</h3>
-                <p>短篇集｜2018年出版</p>
-                <p>新人作家奖入围作品</p>
-            </div>
-            <!-- 更多作品项 -->
+
+        <!-- 搜索框 -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 输入作品名、角色名或平台关键词...">
+            <button class="reset-button" onclick="resetSearch()">🔍 重置搜索</button>
         </div>
+
+        <!-- 完结长篇 -->
+        <section class="category-section">
+            <h2>【完结长篇】</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="三尺 沈西洲 宋纾 旧版 新版 公众号 长佩">
+                    <h3>《三尺（旧版）》<span class="series-tag">沈西洲x宋纾</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/4l5l13eMAVVmrtKE1iKRaQ" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-123059.html?pageType=app_book_info&worksId1=123059" target="_blank">查看</a></p>
+                    <h3>《三尺（新版）</h3>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-1108550.html?pageType=app_book_info&worksId1=1108550" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="家主 沈清徽 沈懿 公众号 长佩 晋江">
+                    <h3>《家主》<span class="series-tag">沈清徽x沈懿</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/gG07SAagmsIffwXAYlmYxg" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-170448.html?pageType=app_book_info&worksId1=170448" target="_blank">查看</a></p>
+                    <h3>《家主（新版）》</h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/OORMA3874CpjI9dRMc3UUQ" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="合衬 时喻 盛颜 长佩 晋江 公众号">
+                    <h3>《合衬》<span class="series-tag">时喻x盛颜</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/-BUOFCHDH2Blf8BIjhPtUA" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-254946.html?pageType=app_book_info&worksId1=254946" target="_blank">查看</a></p>
+                    <h3>《合衬（新版）》</h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/VPCBexglg5fmeT1aN5SRrg" target="_blank">查看</a></p>
+                    <p>晋江：<a href="https://wap.jjwxc.net/book2/8420941" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="病弱妹妹 许郁帘 许温姣 哔哩哔哩漫画APP">
+                    <h3>《病弱妹妹总是肖想我》<span class="series-tag">许郁帘x许温姣</span></h3>
+                    <p>哔哩哔哩漫画APP：<a href="#" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 完结中篇 -->
+        <section class="category-section">
+            <h2>【完结中篇】</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="春日薄 沈裴秀 宋慈 公众号 长佩 晋江">
+                    <h3>《春日薄》<span class="series-tag">沈裴秀x宋慈</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/xs5SCt565vAlfgqRTFKJVg" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-210411.html?pageType=app_book_info&worksId1=210411" target="_blank">查看</a></p>
+                    <p>晋江：<a href="https://wap.jjwxc.net/book2/8421219" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="弱衣 沈绾 夏蓁 长佩 公众号">
+                    <h3>《弱衣》<span class="series-tag">沈绾x夏蓁</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/W5HgZVTUZG948G7aCL9ruQ" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-537150.html?pageType=app_book_info&worksId1=537150" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="非典型关系 冒昧 缺德人生 阮见秋 江洗冰 常爱 许梦里">
+                    <h3>【非典型关系】（系列文）</h3>
+                    <p>《冒昧》阮见秋x江洗冰：<a href="https://mp.weixin.qq.com/s/9E0wiCm2B1RBDjJHjrOiAQ" target="_blank">查看</a></p>
+                    <p>《缺德人生》常爱x许梦里：<a href="https://mp.weixin.qq.com/s/CODCekwtuInt13y3q_OrNA" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="一晌 陈汀 吴俪文 公众号 长佩">
+                    <h3>《一晌》<span class="series-tag">陈汀x吴俪文</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/H7ZXIg8wE9sYTLN0alnlAw" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-1468840.html?pageType=app_book_info&worksId1=1468840" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 完结短篇 -->
+        <section class="category-section">
+            <h2>【完结短篇】</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="野生 香 张蓉 黄洁慧 晋江 长佩">
+                    <h3>【野生】（短篇合集）</h3>
+                    <p>晋江：<a href="https://wap.jjwxc.net/book2/8420992" target="_blank">查看</a></p>
+                    <p>《香》张蓉x黄洁慧：<a href="https://m.gongzicp.com/novel-192358.html?pageType=app_book_info&worksId1=192358" target="_blank">旧版</a> / <a href="https://m.gongzicp.com/novel-211573.html?pageType=app_book_info&worksId1=211573" target="_blank">修订版</a></p>
+                    <p>《香》番外：<a href="https://mp.weixin.qq.com/s/OGlUe2Xs-1YV6aLrkTk37A" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="N号房间 费玉华 赵星星 长佩">
+                    <h3>《N号房间》<span class="series-tag">费玉华x赵星星</span></h3>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-192983.html?pageType=app_book_info&worksId1=192983" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="舞娘 李蔚 冯盈 公众号 长佩">
+                    <h3>《舞娘》<span class="series-tag">李蔚x冯盈</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/wHo4EE34epQBrGZiw4NxhA" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-306556.html?pageType=app_book_info&worksId1=306556" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="妹儿 齐春 林娇 公众号 长佩">
+                    <h3>《妹儿》<span class="series-tag">齐春x林娇</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/JDKZLSsPwIT9WCWPzi2KHA" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-236466.html?pageType=app_book_info&worksId1=236466" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 飘啊飘 短篇集 -->
+        <section class="category-section">
+            <h2>【飘啊飘】（短篇合集）</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="一生太长 秦瑟 秦笙 公众号 长佩">
+                    <h3>《一生太长》<span class="series-tag">秦瑟x秦笙</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/0c-9bDGuTenZMCxYWYFsxQ" target="_blank">查看</a> / <a href="https://mp.weixin.qq.com/s/1vUsBkK1fjLXgNuOWpwBRQ" target="_blank">补遗</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/read-2743067.html" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="无疾而终 我 你 公众号 长佩">
+                    <h3>《无疾而终》<span class="series-tag">“我”x“你”</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/JSLOPTadwjDD54xMaDAi0Q" target="_blank">查看</a></p>
+                    <p>长佩：<a href="https://m.gongzicp.com/read-4865552.html" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 脑洞番外 -->
+        <section class="category-section">
+            <h2>【短打·脑洞·番外】</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="蛇与兔 黑蛇 兔子 公众号">
+                    <h3>《蛇与兔》<span class="series-tag">黑蛇x兔子</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/Gp7UMJhjmf0PLNgvLfcPog" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="我和青梅相爱相杀的二十二年 我 a 公众号">
+                    <h3>《我和青梅相爱相杀的二十二年》<span class="series-tag">“我”x a</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/LAYYrdvoBKxatwNSPnT_iA" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="睡前读物 女主 替身文学 公众号">
+                    <h3>《睡前读物》<span class="series-tag">女主（替身文学）</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/s/Xdknav66nsDPItr-sYxC8A" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 连载中 -->
+        <section class="category-section">
+            <h2>【连载中】</h2>
+            <div class="book-shelf">
+                <div class="book-item" data-tags="识我 沈南风 冉晨昏 哔哩哔哩漫画APP">
+                    <h3>《识我》<span class="series-tag">沈南风x冉晨昏</span></h3>
+                    <p>哔哩哔哩漫画APP：<a href="#" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="一泓春 裴溪月 骆听音 长佩">
+                    <h3>《一泓春》<span class="series-tag">裴溪月x骆听音</span></h3>
+                    <p>长佩：<a href="https://m.gongzicp.com/novel-686481.html?pageType=app_book_info&worksId1=686481" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="您 许眉弯 姜柳 晋江">
+                    <h3>《您》<span class="series-tag">许眉弯x姜柳</span></h3>
+                    <p>晋江：<a href="https://wap.jjwxc.net/book2/8424962" target="_blank">查看</a></p>
+                </div>
+
+                <div class="book-item" data-tags="反哺 严梦白 佟郁青 公众号">
+                    <h3>《反哺》<span class="series-tag">严梦白x佟郁青</span></h3>
+                    <p>公众号：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyMTQ1NTA1Ng==&action=getalbum&album_id=3472343479991107591&scene=173&subscene=&sessionid=svr_d9231694a35&enterid=1735531121&from_msgid=2247486543&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank">查看</a></p>
+                </div>
+            </div>
+        </section>
     </main>
 
-  <footer>
-    <p>©2025 故人温酒-枕水集</p>
-  </footer>
+    <footer>
+        <p>©2025 故人温酒-枕水集</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const bookItems = document.querySelectorAll('.book-item');
+
+        searchInput.addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+
+            bookItems.forEach(item => {
+                const tags = item.getAttribute('data-tags') || '';
+                if (tags.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        function resetSearch() {
+            document.getElementById('searchInput').value = '';
+            document.querySelectorAll('.book-item').forEach(item => {
+                item.style.display = 'block';
+            });
+        }
+    </script>
 
 </body>
 </html>

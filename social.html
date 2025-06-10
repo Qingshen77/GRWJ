@@ -6,32 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>公开账号｜故人温酒</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- 可选：自定义样式 -->
     <style>
-        .platform-grid {
+        .featured-work {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 1rem;
-        }
-        .platform-card {
-            border: 1px solid var(--beige);
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
             padding: 1.5rem;
-            text-align: center;
+            background: rgba(241, 236, 226, 0.3);
+            border-radius: 8px;
         }
-        .qr-code {
-            width: 150px;
-            margin: 1rem auto;
+
+        .latest-news {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px dashed var(--beige);
+        }
+
+        .signature img {
+            max-width: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-work {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .work-info {
+                text-align: center;
+            }
+
+            .book-cover {
+                max-width: 300px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">🏠 首页</a>
-        <a href="about.html">📖 作者简介</a>
-        <a href="social.html">📱 公开账号</a>
-        <a href="works.html">📚 作品汇总</a>
-        <a href="derivatives.html">🎨 作品授权</a>
-        <a href="merchandise.html">🎁 周边展示</a>
+        <!-- 汉堡菜单图标 -->
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
+        <ul>
+            <li><a href="about.html">📖 作者简介</a></li>
+            <li><a href="social.html">📱 公开账号</a></li>
+            <li><a href="works.html">📚 作品汇总</a></li>
+            <li><a href="derivatives.html">🎨 作品授权</a></li>
+            <li><a href="merchandise.html">🎁 周边展示</a></li>
+        </ul>
     </nav>
 
     <main>
@@ -39,24 +64,36 @@
         <div class="platform-grid">
             <div class="platform-card">
                 <h3>微信公众号</h3>
-                <img src="assets/images/wechat-qr.jpg" class="qr-code" alt="微信二维码">
-                <p>搜索：温酒小栈</p>
+                <img src="assets/images/wechat-qr.jpg" class="qr-code" alt="公众号图片">
+                <p>搜索：鹿居GRWJ</p>
             </div>
             <div class="platform-card">
                 <h3>微博</h3>
                 <img src="assets/images/weibo-qr.png" class="qr-code" alt="微博二维码">
-                <p>@故人温酒_official</p>
+                <p>@故人温酒_shen</p>
             </div>
             <div class="platform-card">
-                <h3>哔哩哔哩</h3>
-                <img src="assets/images/bilibili-qr.png" class="qr-code" alt="B站二维码">
-                <p>UID: 12345678</p>
+                <h3>爱发电</h3>
+                <img src="assets/images/weibo-qr.png" class="qr-code" alt="爱发电二维码">
+                <p>搜索：枕水集</p>
+            </div>
+            <div class="platform-card">
+                <h3>小红书</h3>
+                <img src="assets/images/bilibili-qr.png" class="qr-code" alt="小红书页面">
+                <p>搜索：枕水集</p>
             </div>
         </div>
     </main>
 
-     <footer>
-    <p>©2025 故人温酒-枕水集</p>
-     </footer>
+    <footer>
+        <p>©2025 故人温酒-枕水集</p>
+    </footer>
+
+    <!-- 可选：导航栏交互 JS -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

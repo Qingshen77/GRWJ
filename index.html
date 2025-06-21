@@ -66,11 +66,14 @@
         .book-cover {
             flex: 1 1 250px;
             text-align: center;
+        max-width: 300px;
+        margin: 0 auto 2rem;
         }
 
         .book-cover img {
             width: 100%;
             max-width: 250px;
+            max-height: 300px;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
@@ -118,16 +121,31 @@
             margin-top: 2rem;
         }
 
-        .signature img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--beige);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+
+    .signature img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--beige);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
         @media (max-width: 768px) {
+        .book-cover {
+            max-width: 100%;
+        }
+
             .featured-work {
                 flex-direction: column-reverse;
                 padding: 2rem 1rem;
@@ -138,8 +156,15 @@
             }
 
             .book-cover img {
-                max-width: 200px;
+              width: 100%;
+            height: auto;
             }
+
+        .signature img {
+            width: 120px;
+            height: 120px;
+        }
+    
         }
     </style>
 </head>
@@ -174,7 +199,7 @@
             </p>
 
             <div class="signature">
-                <img src="assets/images/author.jpg" alt="故人温酒 - 作者头像">
+                 <img src="assets/images/author.jpg" alt="首页封面" loading="lazy">
             </div>
         </section>
 
@@ -182,14 +207,14 @@
         <section class="featured-work">
             <!-- 代表作《三尺》 -->
             <div class="book-cover">
-                <img src="assets/images/sanchi.jpg" alt="《三尺》作品封面">
+                <img src="assets/images/sanchi.jpg" alt="《三尺》作品封面" loading="lazy">
                 <p>代表作 《三尺》· 沈西洲 x 宋纾</p>
             </div>
 
             <!-- 作品信息 -->
             <div class="work-info">
                 <h2>最新长篇连载</h2>
-                <img src="assets/images/jiazhu.jpg" alt="《家主》封面" style="max-width: 300px; border-radius: 10px;">
+                <img src="assets/images/jiazhu.jpg" alt="《家主》封面"  loading="lazy"; style="max-width: 230px; border-radius: 10px;">
                 <p class="meta-info">
                     ✦ 《家主》<br>
                     ✦ 现代悬疑·女性家族·复仇与新生【沈清徽x沈懿】<br>

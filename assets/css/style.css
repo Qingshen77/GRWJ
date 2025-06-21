@@ -441,3 +441,51 @@ footer::before {
     border-radius: 10px;
     margin-bottom: 1rem;
 }
+
+
+/* 所有图片统一响应式显示 */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-sizing: border-box;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    /* 用于调试：取消注释即可查看图片是否被渲染 */
+    /* border: 1px solid red; */
+}
+
+/* 确保父容器不影响显示 */
+.book-cover,
+.intro-card img,
+.signature img {
+    width: 100%;
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* 移动端适配：强制显示 */
+@media (max-width: 768px) {
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border: 1px dashed #ccc; /* 可视化边界（可删除） */
+    }
+
+    .book-cover,
+    .intro-card img,
+    .signature img {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* 强制滚动时刷新图片（防止隐藏） */
+    .intro-card {
+        overflow: visible !important;
+    }
+}

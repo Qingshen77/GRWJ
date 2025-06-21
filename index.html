@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -7,58 +6,148 @@
     <title>故人温酒｜文学世界</title>
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- 可选：自定义样式 -->
+    <!-- Google Fonts 或你自定义字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 自定义首页样式 -->
     <style>
-        .featured-work {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 2rem;
-            padding: 1.5rem;
-            background: rgba(241, 236, 226, 0.3);
-            border-radius: 8px;
+        /* 主标题样式 */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(to bottom, #fdfcfb, #f4f0ec);
+            color: var(--charcoal);
         }
 
-        .latest-news {
-            margin: 2rem 0;
-            padding: 1rem;
-            border: 1px dashed var(--beige);
+        .hero-section h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            color: #2c2c2c;
+        }
+
+        .hero-section .deco-line {
+            width: 80px;
+            height: 4px;
+            background: var(--beige);
+            margin: 1rem auto;
+        }
+
+        .lead {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .lead .highlight {
+            color: var(--slate);
+            font-weight: bold;
+        }
+
+        /* 封面区 */
+        .featured-work {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 1px solid var(--beige);
+            border-bottom: 1px solid var(--beige);
+        }
+
+        .book-cover {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .book-cover img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book-cover img:hover {
+            transform: scale(1.03);
+        }
+
+        .work-info {
+            flex: 2 1 300px;
+        }
+
+        .work-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .meta-info {
+            font-size: 1.1rem;
+            color: var(--slate);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--slate);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--beige);
+            color: #222;
+        }
+
+        .signature {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         .signature img {
-            max-width: 200px;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--beige);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-.book-cover img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-}
+        @media (max-width: 768px) {
+            .featured-work {
+                flex-direction: column-reverse;
+                padding: 2rem 1rem;
+            }
 
-@media (max-width: 768px) {
-    .book-cover {
-        max-width: 300px;
-        margin: 0 auto;
-    }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
 
-    .book-cover img {
-        width: 100%;
-        height: auto;
-    }
-
-    .intro-card img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-}
-
+            .book-cover img {
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- 导航栏 -->
     <nav>
         <a href="index.html">🏠 首页</a>
-        <!-- 汉堡菜单图标 -->
         <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
         <ul>
             <li><a href="about.html">📖 作者简介</a></li>
@@ -69,63 +158,66 @@
             <li><a href="merchandise.html">🎁 周边展示</a></li>
         </ul>
     </nav>
-        
 
+    <!-- 主体内容 -->
     <main>
-    <div class="hero-section">
-        <!-- 主标题区 -->
-        <div class="title-wrapper">
-            <h1 class="brush-title">故人温酒·书写女性人生，讲述女性故事</h1>
-            <div class="deco-line"></div>
-        </div>
-
-        <!-- 作家简介区 -->
-        <section class="author-intro">
-            <div class="intro-text">
-                <p class="lead">
-                    您好！欢迎来到 <span class="highlight">故人温酒</span> 的作品信息库<br>
-                    在这里，你将全面地了解故人温酒的创作世界，感知她的作品丰度。
-                </p>
-                <div class="signature">
-                    <img src="assets/images/author.jpg" alt="作家头像">
-                </div>
+        <!-- 英雄区域 -->
+        <section class="hero-section">
+            <div class="title-wrapper">
+                <h1>故人温酒 · 书写女性人生，讲述女性故事</h1>
+                <div class="deco-line"></div>
             </div>
-            
-            <!-- 代表作品展示 -->
-            <article class="featured-work">
-                <div class="book-cover">
-                  <h2>代表作《三尺》</h2>
-                    <img src="assets/images/sanchi.jpg" alt="代表作封面" 
-                         data-title="《三尺》">
-                    <div class="hover-mask"></div>
-                </div>
-                <div class="work-info">
-                    <h2>最新长篇连载</h2>
-                  <img src="assets/images/jiazhu.jpg" alt="更新中" 
-                    <p class="meta-info">
-                        <span class="icon">🌸</span> 《家主》<br>
-                        <span class="icon">📖</span> 现代悬疑·家主与阿懿<br>
-                        <span class="icon">🏆</span> 2024年度最受读者期待作品
-                    </p>
-                    <a href="works.html" class="cta-btn">
-                        <span>作品详情</span>
-                        <svg class="arrow-icon">...</svg>
-                    </a>
-                </div>
-            </article>
-        </section>
-    </div>
-</main>
 
+            <p class="lead">
+                您好！欢迎来到 <span class="highlight">故人温酒</span> 的作品信息库<br>
+                在这里，你将全面地了解她的创作世界，感知她的作品丰度。
+            </p>
+
+            <div class="signature">
+                <img src="assets/images/author.jpg" alt="故人温酒 - 作者头像">
+            </div>
+        </section>
+
+        <!-- 代表作展示 -->
+        <section class="featured-work">
+            <!-- 代表作《三尺》 -->
+            <div class="book-cover">
+                <img src="assets/images/sanchi.jpg" alt="《三尺》作品封面">
+                <p>代表作 《三尺》· 沈西洲 x 宋纾</p>
+            </div>
+
+            <!-- 作品信息 -->
+            <div class="work-info">
+                <h2>最新长篇连载</h2>
+                <img src="assets/images/jiazhu.jpg" alt="《家主》封面" style="max-width: 300px; border-radius: 10px;">
+                <p class="meta-info">
+                    ✦ 《家主》<br>
+                    ✦ 现代悬疑·女性家族·复仇与新生【沈清徽x沈懿】<br>
+                    ✦ 2024年度最受读者期待作品
+                </p>
+                <a href="works.html" class="cta-btn">📚 查看作品详情</a>
+            </div>
+        </section>
+
+        <!-- 最新动态（可选） -->
+        <section class="latest-news">
+            <h2>📢 最新动态</h2>
+            <p>《识我》正在哔哩哔哩漫画APP连载，敬请期待。</p>
+            <p>最新脑洞文*正在公众号更新，不要错过哦~</p>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
     <footer>
         <p>©2025 故人温酒-枕水集</p>
     </footer>
 
-    <!-- 可选：导航栏交互 JS -->
+    <!-- 导航交互 JS -->
     <script>
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('nav ul').classList.toggle('active');
         });
     </script>
+
 </body>
 </html>

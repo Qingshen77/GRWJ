@@ -28,21 +28,31 @@
             max-width: 200px;
         }
 
-        @media (max-width: 768px) {
-            .featured-work {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+.book-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
 
-            .work-info {
-                text-align: center;
-            }
+@media (max-width: 768px) {
+    .book-cover {
+        max-width: 300px;
+        margin: 0 auto;
+    }
 
-            .book-cover {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-        }
+    .book-cover img {
+        width: 100%;
+        height: auto;
+    }
+
+    .intro-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -77,7 +87,7 @@
                     在这里，你将全面地了解故人温酒的创作世界，感知她的作品丰度。
                 </p>
                 <div class="signature">
-                    <img src="assets/images/author.jpg" alt="封面">
+                    <img src="assets/images/zuozhe.jpg" alt="作家头像">
                 </div>
             </div>
             

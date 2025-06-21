@@ -544,7 +544,45 @@
         <p>©2025 故人温酒-枕水集</p>
     </footer>
 
- <script src="assets/js/search.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById('searchInput') || document.getElementById('introSearch');
+
+        if (!searchInput) return;
+
+        const bookItems = document.querySelectorAll('.book-entry, .intro-card');
+
+        searchInput.addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            let firstMatch = null;
+
+            bookItems.forEach(item => {
+                const tags = item.getAttribute('data-tags') || '';
+                if (tags.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                    if (!firstMatch) firstMatch = item;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // 自动跳转定位
+            if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // 支持多个页面的重置函数
+        window.resetSearch = function () {
+            searchInput.value = '';
+            bookItems.forEach(item => item.style.display = 'block');
+        };
+
+        window.resetIntroSearch = function () {
+            searchInput.value = '';
+            bookItems.forEach(item => item.style.display = 'block');
+        };
+    });
+</script>
+
 
 
 </body>

@@ -1,4 +1,3 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,6 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>故人温酒 - 作者简介</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- 自定义居中样式 -->
+    <style>
+        :root {
+            --max-width: 800px;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+        
+        .author-card {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(241, 236, 226, 0.3);
+            border-radius: 12px;
+        }
+        
+        .author-portrait {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 60%;
+            margin: 0 auto 2rem;
+            display: block;
+            border: 4px solid var(--beige);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .accent-text {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .timeline, 
+        .biography {
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .timeline h2,
+        .biography h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .timeline p,
+        .biography p {
+            margin: 1rem 0;
+        }
+        
+        .timeline .accent-text,
+        .biography .accent-text {
+            display: block;
+            margin-top: 1rem;
+        }
+        
+        .biography ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .biography li {
+            background: rgba(241, 236, 226, 0.5);
+            padding: 0.75rem 1.25rem;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .author-portrait {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 1.5rem;
+            }
+            
+            .timeline .accent-text,
+            .biography .accent-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 
     <!-- 可选：自定义样式 -->
     <style>
@@ -60,7 +162,6 @@
         </ul>
     </nav>
 
-
     <main>
         <div class="author-card">
             <img src="assets/images/zuozhe.jpg" alt="作者头像" class="author-portrait">
@@ -68,19 +169,18 @@
             
             <div class="timeline">
                 <h2>创作历程</h2>
-                <p class="accent-text">2018-2020</p>
-                 <p>[一位女性主义百合作家的诞生]</p>  
+                <p class="accent-text">【2018年-2020年】</p>
+                <p>[一位女性主义百合作家的诞生]</p>  
                 <p>发布首部长篇小说《三尺》，开启创作生涯</p>
                 <p>“三家”女性家族的萌芽，《家主》诞生</p>   
-           
-                <p class="accent-text">2020-2024</p>
-                 <p>[初具名气，灵感爆发]</p>  
-                <p>接连完成《野生》《飘啊飘》两本短篇小说集，广受读者好评。</p>
-                <p>小说题材丰富，展现丰富的女性形象，备受读者推崇。</p>
+            
+                <p class="accent-text">【2020年-2024年】</p>
+                <p>[初具名气，灵感爆发]</p>  
+                <p>接连完成《野生》《飘啊飘》两本短篇小说集，广受读者好评</p>
+                <p>小说题材丰富，展现丰富的女性形象，备受读者推崇</p>
 
-                <p class="accent-text">2024-至今</p>
+                <p class="accent-text">【2024年-至今】</p>
                 <p>突破自我，走入创作新阶段</p>
-                
             </div>
 
             <div class="biography">
@@ -89,18 +189,17 @@
                     <li>女性主义 女本位</li>
                     <li>文风优美 用词精妙</li>
                     <li>擅长营造电影般的景物场景</li>
-                    <li>重点突出现实叙事中女性力量</li>
+                    <li>重点突出现实叙事中的女性力量</li>
                 </ul>
             </div>
         </div>
     </main>
 
-
- <footer>
+    <footer>
         <p>©2025 故人温酒-枕水集</p>
     </footer>
 
-    <!-- 可选：导航栏交互 JS -->
+    <!-- 导航栏交互 JS -->
     <script>
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('nav ul').classList.toggle('active');
